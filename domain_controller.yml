@@ -1,0 +1,5 @@
+---
+- name: Initialize Domain Controller
+  hosts: 10.1.99.3
+  roles:
+    - domain_controller 
