@@ -1,8 +1,8 @@
 ansible_user: administrator
 ansible_password: Seclab123!
-recovery_password: Seclab123!
 ansible_connection: ssh
 ansible_shell_type: cmd
+recovery_password: Seclab123!
 dc_hostname: "zd-dc-01"
 domain_name: "zeroday.local"
 upstream_dns_1: 8.8.8.8

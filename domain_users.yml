@@ -1,6 +1,15 @@
 ---
 - name: Create Domain Users
   hosts: domaincontrollers
+  tasks:
+    - name: Create Domain Users
+      community.windows.win_domain_user:
+        firstname: "{{ item.firstName }}"
+        lastname: "{{ item.lastName }}"
+        name: "{{ item.username }}"
+        password: "{{ item.password }}"
+      loop:
+        "{{ users }}"
   vars:
     users:
       - firstName: "Joe"
@@ -11,10 +20,3 @@
         lastName: "Pwnerson"
         username: "jpwnerson"
         password: "Eureka4791?"
-  community.windows.win_domain_user:
-    firstname: "{{ item.firstName }}"
-    lastname: "{{ item.lastName }}"
-    name: "{{ item.username }}"
-    password: "{{ item.password }}"
-  loop:
-    "{{ users }}"
