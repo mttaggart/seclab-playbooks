@@ -1,5 +1,5 @@
 ---
 - name: Initialize Domain Controller
-  hosts: 10.1.99.3
+  hosts: domaincontrollers
   roles:
     - domain_controller 
