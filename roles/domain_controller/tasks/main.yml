@@ -65,4 +65,6 @@
     lastname: "{{ item.lastName }}"
     name: "{{ item.username }}"
     password: "{{ item.password }}"
+  loop:
+    "{{ users }}"
 
