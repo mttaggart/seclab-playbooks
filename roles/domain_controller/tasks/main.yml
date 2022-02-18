@@ -48,7 +48,7 @@
 
 - name: Set internal DNS server
   win_dns_client:
-    adapter_names: "Ethernet 2"
+    adapter_names: "Ethernet Instance 0 2"
     ipv4_addresses:
     - '127.0.0.1'
 
@@ -58,3 +58,11 @@
   delay: 60
   register: result
   until: result is succeeded
+
+- name: Create Users
+  win_domain_user:
+    firstname: "{{ item.firstName }}"
+    lastname: "{{ item.lastName }}"
+    name: "{{ item.username }}"
+    password: "{{ item.password }}"
+

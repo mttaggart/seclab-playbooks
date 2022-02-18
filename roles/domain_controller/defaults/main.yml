@@ -2,8 +2,8 @@ ansible_user: administrator
 ansible_password: Seclab123!
 recovery_password: Seclab123!
 ansible_connection: winrm
-ansible_winrm_transport: ntlm
-ansible_winrm_port: 5985
+ansible_winrm_transport: ssh
+ansible_shell_type: cmd
 dc_hostname: "zd-dc-01"
 domain_name: "zeroday.local"
 upstream_dns_1: 8.8.8.8
