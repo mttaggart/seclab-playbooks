@@ -11,7 +11,7 @@
         lastName: "Pwnerson"
         username: "jpwnerson"
         password: "Eureka4791?"
-  win_domain_user:
+  ansible.windows.win_domain_user:
     firstname: "{{ item.firstName }}"
     lastname: "{{ item.lastName }}"
     name: "{{ item.username }}"
