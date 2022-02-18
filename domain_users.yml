@@ -1,0 +1,20 @@
+---
+- name: Create Domain Users
+  hosts: domaincontrollers
+  vars:
+    users:
+      - firstName: "Joe"
+        lastName: "HackMe"
+        username: "jhackme"
+        password: "Winter2022!"
+      - firstName: "Jane"
+        lastName: "Pwnerson"
+        username: "jpwnerson"
+        password: "Eureka4791?"
+  win_domain_user:
+    firstname: "{{ item.firstName }}"
+    lastname: "{{ item.lastName }}"
+    name: "{{ item.username }}"
+    password: "{{ item.password }}"
+  loop:
+    "{{ users }}"
