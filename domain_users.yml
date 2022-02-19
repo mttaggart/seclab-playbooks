@@ -7,7 +7,7 @@
       name: "{{ item.name }}"
       state: present
     loop:
-      "{{ groups }}"
+      "{{ domain_groups }}"
   - name: Create Domain Users
     community.windows.win_domain_user:
       firstname: "{{ item.firstName }}"
@@ -15,9 +15,9 @@
       name: "{{ item.username }}"
       password: "{{ item.password }}"
     loop:
-      "{{ users }}"
+      "{{ domain_users }}"
   vars:
-    users:
+    domain_users:
       - firstName: "Joe"
         lastName: "HackMe"
         username: "jhackme"
@@ -32,7 +32,7 @@
         password: "!M1n3rv4!"
         groups:
           - "Domain Admins"
-    groups:
+    domain_groups:
       - name: "IT Staff"
       - name: "Marketing"
       - name: "Accounting"
