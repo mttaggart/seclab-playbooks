@@ -31,6 +31,7 @@
         lastName: "Minerva"
         username: "aminerva"
         password: "!M1n3rv4!"
+        groups_action: "add"
         groups:
           - "Domain Admins"
     domain_groups:
