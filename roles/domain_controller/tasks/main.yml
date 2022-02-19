@@ -59,12 +59,3 @@
   register: result
   until: result is succeeded
 
-- name: Create Users
-  win_domain_user:
-    firstname: "{{ item.firstName }}"
-    lastname: "{{ item.lastName }}"
-    name: "{{ item.username }}"
-    password: "{{ item.password }}"
-  loop:
-    "{{ users }}"
-
