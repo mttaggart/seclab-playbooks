@@ -2,12 +2,12 @@
 - name: Create Domain Users
   hosts: domaincontrollers
   tasks:
-  - name: Create Domain Groups
-      community.windows.win_domain_group:
-        name: "{{ item.name }}"
-        state: present
-      loop:
-        "{{ groups }}"
+    - name: Create Domain Groups
+        community.windows.win_domain_group:
+          name: "{{ item.name }}"
+          state: present
+        loop:
+          "{{ groups }}"
     - name: Create Domain Users
       community.windows.win_domain_user:
         firstname: "{{ item.firstName }}"
