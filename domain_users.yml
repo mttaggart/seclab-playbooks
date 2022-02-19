@@ -17,7 +17,7 @@
       password: "{{ item.password }}"
     loop:
       "{{ domain_users }}"
-  - name: Create Domain Users
+  - name: Domain Group Memberships
     community.windows.win_domain_group_membership:
       name: "Domain Admins"
       members: 
