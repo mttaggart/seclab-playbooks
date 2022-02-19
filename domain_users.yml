@@ -2,6 +2,12 @@
 - name: Create Domain Users
   hosts: domaincontrollers
   tasks:
+  - name: Create Domain Groups
+      community.windows.win_domain_group:
+        name: "{{ item.name }}"
+        state: present
+      loop:
+        "{{ groups }}"
     - name: Create Domain Users
       community.windows.win_domain_user:
         firstname: "{{ item.firstName }}"
@@ -20,3 +26,12 @@
         lastName: "Pwnerson"
         username: "jpwnerson"
         password: "Eureka4791?"
+      - firstName: "Adam"
+        lastName: "Minerva"
+        username: "aminerva"
+        password: "!M1n3rv4!"
+        groups:
+          - "Domain Admins"
+    groups:
+      - name: "IT Staff"
+      
