@@ -17,11 +17,16 @@
       password: "{{ item.password }}"
     loop:
       "{{ domain_users }}"
-  - name: Domain Group Memberships
-    community.windows.win_domain_group_membership:
+  - name: Add Domain Admins
+      community.windows.win_domain_group_membership:
       name: "Domain Admins"
       members: 
         - aminerva
+  - name: Populate Domain Groups
+      community.windows.win_domain_group_membership:
+      name: "{{ item.name }}"
+      members: "{{ item.members }}"
+  
     
   vars:
     domain_users:
@@ -37,11 +42,35 @@
         lastName: "Minerva"
         username: "aminerva"
         password: "!M1n3rv4!"
+      - firstName: "Husky"
+        lastName: "Hacks"
+        username: "hhacks"
+        password: "fetching_canfield_98"
+      - firstName: "FootPics"
+        lastName: "ForSale"
+        username: "fforsale"
+        password: "swampy_mounties_59"
+      - firstName: "SinDa"
+        lastName: "Remedy"
+        username: "sdaremedy"
+        password: "gracious_fuji_19"
+      
 
     domain_groups:
       - name: "IT Staff"
+        members: 
+          - "jhackme"
+          - "aminerva"
       - name: "Marketing"
+        members: 
+          - "jpwnerson"
       - name: "Accounting"
+        members: 
+          - "sdaremedy"
       - name: "HR"
+        members: 
+          - "fforsale"
       - name: "Software Developers"
+        members: 
+            - "hhacks"
       
