@@ -18,14 +18,16 @@
     loop:
       "{{ domain_users }}"
   - name: Add Domain Admins
-      community.windows.win_domain_group_membership:
+    community.windows.win_domain_group_membership:
       name: "Domain Admins"
       members: 
         - aminerva
   - name: Populate Domain Groups
-      community.windows.win_domain_group_membership:
+    community.windows.win_domain_group_membership:
       name: "{{ item.name }}"
       members: "{{ item.members }}"
+    loop:
+      "{{ domain_groups }}"
   
     
   vars:
