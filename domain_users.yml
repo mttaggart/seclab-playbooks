@@ -34,6 +34,7 @@
         groups_action: "add"
         groups:
           - "Domain Admins"
+          - "IT Staff"
     domain_groups:
       - name: "IT Staff"
       - name: "Marketing"
