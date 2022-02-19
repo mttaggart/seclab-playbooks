@@ -34,4 +34,8 @@
           - "Domain Admins"
     groups:
       - name: "IT Staff"
+      - name: "Marketing"
+      - name: "Accounting"
+      - name: "HR"
+      - name: "Software Developers"
       
