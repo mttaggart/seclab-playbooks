@@ -17,6 +17,12 @@
       password: "{{ item.password }}"
     loop:
       "{{ domain_users }}"
+  - name: Create Domain Users
+    community.windows.win_domain_group_membership:
+      name: "Domain Admins"
+      members: 
+        - aminerva
+    
   vars:
     domain_users:
       - firstName: "Joe"
@@ -31,10 +37,7 @@
         lastName: "Minerva"
         username: "aminerva"
         password: "!M1n3rv4!"
-        groups_action: "add"
-        groups:
-          - "Domain Admins"
-          - "IT Staff"
+
     domain_groups:
       - name: "IT Staff"
       - name: "Marketing"
