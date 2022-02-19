@@ -5,6 +5,7 @@
   - name: Create Domain Groups
     community.windows.win_domain_group:
       name: "{{ item.name }}"
+      scope: "domainlocal"
       state: present
     loop:
       "{{ domain_groups }}"
