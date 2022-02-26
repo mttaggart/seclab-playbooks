@@ -1,6 +1,6 @@
 subnet {{ dhcp_subnet }} {
     range {{ dhcp_pool_start }} {{ dhcp_pool_end }};
-    option routers {{ dhcp_router }};
+    option routers {{ dhcp_routers }};
     option domain-search {{ dhcp_domain_name }};
     {% if subnet.domain_name_servers is string %}
     option domain-name-servers {{ subnet.domain_name_servers }};
