@@ -3,8 +3,8 @@ subnet {{ dhcp_subnet }} {
     option routers {{ dhcp_routers }};
     option domain-search {{ dhcp_domain_name }};
     {% if subnet.domain_name_servers is string %}
-    option domain-name-servers {{ subnet.domain_name_servers }};
+    option domain-name-servers {{ dhcp_nameservers }};
     {% else %}
-    option domain-name-servers {{ subnet.domain_name_servers|join(', ') }};
+    option domain-name-servers {{ dhcp_nameservers|join(', ') }};
     {% endif %}
 }
