@@ -19,7 +19,7 @@
 
     - name: Remove Sysmon Install Files
       ansible.windows.win_file:
-        path: "C:\Users\Administrator\{{ item }}"
+        path: "C:\Users\Administrator\Downloads\{{ item }}"
         state: absent
       loop: "{{ sysmon_files }}"
       vars:
