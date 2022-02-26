@@ -1,7 +1,5 @@
 ---
 - name: Set up DHCP
   hosts: 10.1.99.5
-  become: yes
-  become_user: root
   roles:
     - dhcp_server
