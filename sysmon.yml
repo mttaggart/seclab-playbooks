@@ -13,13 +13,13 @@
         dest: C:\Users\Administrator\Downloads\sysmonconfig-export.xml
 
     - name: Install Sysmon as as Service
-      ansible.windows.win_shell: ".\Sysmon64.exe -accepteula -i .\sysmonconfig-export.xml"
+      ansible.windows.win_shell: ".\\Sysmon64.exe -accepteula -i .\\sysmonconfig-export.xml"
       args:
         chdir: C:\Users\Administrator\Downloads
 
     - name: Remove Sysmon Install Files
       ansible.windows.win_file:
-        path: "C:\Users\Administrator\Downloads\{{ item }}"
+        path: "C:\\Users\\Administrator\\Downloads\\{{ item }}"
         state: absent
       loop: "{{ sysmon_files }}"
       vars:
