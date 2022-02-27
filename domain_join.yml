@@ -9,3 +9,7 @@
       domain_admin_password: Seclab123!
       state: domain
     register: domain_state
+  - win_reboot:
+      msg: "Domain joined. Rebooting"
+      pre_reboot_delay: 15
+      when: domain_state.changed
