@@ -1,5 +1,6 @@
 ---
 - name: Install Wazuh Agent on Windows
+  hosts: windows-hosts
   vars:
     wazuh_manager_ip: 10.1.99.4
     wazuh_registration_ip: 10.1.99.4
