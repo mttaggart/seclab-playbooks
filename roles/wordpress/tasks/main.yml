@@ -10,10 +10,11 @@
 
 - name: Install WordPress
   unarchive:
-    remote_src: /tmp/latest.zip
+    src: /tmp/latest.zip
     dest: /var/www/html/
     owner: www-data
     group: www-data
+    remote_src: yes
 
 - name: Cleanup Install Files 1
   file: 
