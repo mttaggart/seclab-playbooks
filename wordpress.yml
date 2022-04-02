@@ -1,6 +1,6 @@
 ---
 - name: Create a WordPress Server
-  hosts: labservers
+  hosts: webservers
   become: yes
   become_user: root
   roles:
