@@ -10,7 +10,7 @@
 
 - name: Install WordPress
   unarchive:
-    src: /tmp/latest.zip
+    remote_src: /tmp/latest.zip
     dest: /var/www/html/
     owner: www-data
     group: www-data
