@@ -5,9 +5,9 @@
     update_cache: yes
 
 - name: Add Docker GPG Key
-  ansible.builtin.shell: 
-    cmd: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-    creates: /usr/share/keyrings/docker-archive-keyring.gpg
+  ansible.builtin.get_url: 
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /usr/share/keyrings/docker-archive-keyring.gpg
 
 - name: Add Docker Sources
   ansible.builtin.shell: 
