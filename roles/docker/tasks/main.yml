@@ -5,14 +5,12 @@
     update_cache: yes
 
 - name: Add Docker GPG Key
-  ansible.builtin.get_url: 
-    url: https://download.docker.com/linux/ubuntu/gpg
-    dest: /usr/share/keyrings/docker-archive-keyring.gpg
+  ansible.builtin.shell:
+    cmd: curl -L https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
 - name: Add Docker Sources
   ansible.builtin.shell: 
-    cmd: echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu impish stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-    creates: /etc/apt/sources.list.d/docker.list 
+    cmd: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 - name: Install Docker Engine
   ansible.builtin.apt:
