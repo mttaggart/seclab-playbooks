@@ -5,12 +5,13 @@
     update_cache: yes
 
 - name: Add Docker GPG Key
-  ansible.builtin.shell:
-    cmd: curl -L https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg 
 
 - name: Add Docker Sources
-  ansible.builtin.shell: 
-    cmd: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  ansible.builtin.apt_repository: 
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+    state: present
 
 - name: Install Docker Engine
   ansible.builtin.apt:
