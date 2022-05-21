@@ -1,8 +1,6 @@
 ---
-- name: Restart Wazuh
+- name: Restart Wazuh on Windows
   hosts: windows-hosts
-  become: yes
-  become_user: root
   tasks:
     - name: Restart Wazuh
       ansible.windows.win_service:
