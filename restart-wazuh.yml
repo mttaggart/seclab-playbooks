@@ -3,6 +3,8 @@
   hosts: windows-hosts
   become: yes
   become_user: root
-  ansible.windows.win_service:
-    name: Wazuh
-    state: restarted
+  tasks:
+    - name: Restart Wazuh
+      ansible.windows.win_service:
+        name: Wazuh
+        state: restarted
